@@ -1,0 +1,51 @@
+#include<stdio.h>
+int m,n,i;
+void inhang(int a[][100],int i, int n)
+{
+	for(int j=0;j<n;j++)
+		printf("%3d",a[i][j]);
+}
+void in(int a[][100],int m, int n)
+{
+	printf("Ma tran:\n");
+	for(i=0;i<m;i++)
+	{
+		inhang(a,i,n);
+		printf("\n");
+	}
+}
+void nhap(int a[][100],int m, int n)
+{
+	for(i=0;i<m;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			printf("a[%d][%d]: ",i,j);
+			scanf("%d",&a[i][j]);
+		}
+	}
+}
+void ktra(int a[][100],int m, int n)
+{
+	int t=a[0][0];
+	for(i=0;i<m;i++)
+	{
+		for(int j=0;j<n;j++)
+		{
+			if(a[i][j]==a[0][0]);
+			else
+				if(a[i][j]<=a[i][j-1]) t=a[i][j];
+		}
+	}
+	printf("Gia tri nho nhat: %d",t);
+}
+int main()
+{
+	int a[100][100];
+	printf("Nhap chieu dai n: "); scanf("%d",&n);
+	printf("Nhap chieu cao m: "); scanf("%d",&m);
+	nhap(a,m,n);
+	in(a,m,n);
+	ktra(a,m,n);
+	return 0;
+}
